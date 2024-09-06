@@ -1,0 +1,17 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {},
+		"ghcr.io/swift-server-community/swift-devcontainer-features/sqlite:1": {}
+	},
+	"forwardPorts": [
+		3000
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"HirotakaYoshioka.database-notebook"
+			]
+		}
+	}
+}
