@@ -68,6 +68,7 @@ Here, you'll calculate a new value based on the salary and rename it.
 |-----------|--------|------------|
 | Johnson   | 4000   | 48100      |
 
+SELECT last_name, salary, 12*salary+100 AS new_salary FROM employees;
 ---
 
 ## Task 7: Retrieve department_id from employees table and order by department_id in ascending order
@@ -82,6 +83,7 @@ To retrieve and order the results by a specific column, think about how to sort 
 | 10            |
 | 20            |
 
+SELECT department_id FROM employees ORDER BY department_id ASC;
 ---
 
 ## Task 8: Retrieve last_name, salary, and commission_pct from employees table
@@ -95,6 +97,7 @@ Select and display specific columns, focusing on retrieving both numeric and per
 |-----------|--------|----------------|
 | Lee       | 5000   | 0.1            |
 
+SELECT last_name, salary, commission_pct FROM employees WHERE commission_pct IS NOT NULL;
 ---
 
 ## Task 9: Retrieve last_name and 12*salary*commission_pct from employees table
@@ -149,6 +152,9 @@ Filter the results to show only those rows that meet a certain condition.
 
 ---
 
+SELECT last_name, salary FROM employees
+   ...> WHERE salary <= 3000;
+
 ## Task 13: Retrieve first_name from employees table where first_name starts with 'S'
 
 Retrieve names that match a specific pattern.
@@ -162,6 +168,8 @@ Retrieve names that match a specific pattern.
 
 ---
 
+SELECT first_name FROM employees WHERE first_name LIKE 'S%';
+
 ## Task 14: Retrieve last_name from employees table where last_name starts with any character followed by 'o'
 
 Find last names with a specific pattern.
@@ -173,6 +181,7 @@ Find last names with a specific pattern.
 |-----------|
 | Moore     |
 
+SELECT first_name FROM employees WHERE first_name LIKE '_o%';
 ---
 
 ## Task 15: Retrieve last_name and commission_pct from employees table where commission_pct is NULL
@@ -187,6 +196,7 @@ Filter the results to show rows where a specific value is missing.
 | Baker     | NULL           |
 
 ---
+SELECT last_name, commission_pct FROM employees WHERE commission_pct IS NULL;
 
 ## Task 16: Retrieve employee_id, last_name, salary, and department_id from employees table where salary is greater than or equal to 8000 and department_id is either 30 or 50
 
@@ -201,6 +211,8 @@ Use conditions to filter rows based on multiple criteria.
 
 ---
 
+SELECT employee_id, last_name, salary, department_id FROM employees WHERE salary <= 8000 AND department_id = 30 OR department_id = 50;
+
 ## Task 17: Retrieve first_name, last_name, department_id, and hire_date from employees table and order by hire_date
 
 Retrieve specific columns and order them by a date field.
@@ -212,6 +224,9 @@ Retrieve specific columns and order them by a date field.
 |------------|-----------|---------------|-----------|
 | Emily      | Davis     | 20            | 2022-01-10|
 
+SELECT first_name, last_name, department_id, hire_date 
+FROM employees
+ORDER BY hire_date ASC;
 ---
 
 ## Task 18: Retrieve first_name, last_name, department_id, and hire_date from employees table and order by department_id and last_name
@@ -224,3 +239,6 @@ Order the results by multiple columns.
 | first_name | last_name | department_id | hire_date |
 |------------|-----------|---------------|-----------|
 | John       | Doe       | 10            | 2021-05-15|
+
+SELECT first_name, last_name, department_id, hire_date FROM employees
+ORDER BY department_id, last_name;
